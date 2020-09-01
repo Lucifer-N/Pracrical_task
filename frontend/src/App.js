@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Signup from "./Signup";
 import LoginForm from "./Login";
 import AddProductForm from "./AddProduct";
-import ProductList from "./ProductList";
+import ProductList from "./ProductList.js";
 import UpdateProduct from "./UpdateProduct";
 
 export default function App() {
