@@ -1,5 +1,5 @@
 let { Product } = require("../models");
-
+const { v4: uuidv4 } = require("uuid");
 exports.addProduct = async (req, res) => {
   let product = await Product.findOne({
     SRC: req.body.SRC,
@@ -10,7 +10,7 @@ exports.addProduct = async (req, res) => {
     });
   product = new Product({
     name: req.body.name,
-    SKU: req.body.sku,
+    SKU: uuidv4(),
     price: req.body.price,
     category: req.body.category,
     quantity: req.body.quantity,
@@ -24,8 +24,17 @@ exports.addProduct = async (req, res) => {
   });
 };
 
+exports.update = async (req, res) => {
+  const product = await Product.findOne({
+    SRC: req.body.src,
+  });
+  product.name = req.body.name;
+  await product.save();
+  res.send({ message: "password updated successfully" });
+};
+
 exports.getProduct = async (req, res) => {
   let products = await Product.find();
 
-  res.send({ data: products });
+  res.send({ product: products });
 };

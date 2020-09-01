@@ -5,3 +5,7 @@ let router = express.Router();
 router.post("/addProduct", Product.addProduct);
 
 router.post("/getProduct", Product.getProduct);
+
+router.post("/updateProduct", Product.update);
+
+module.exports = router;

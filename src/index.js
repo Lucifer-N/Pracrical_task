@@ -1,8 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-require("dotenv").config();
 const routes = require("./routes");
-const config = require("config");
+const config = require("../config/default.json");
 const app = express();
 const http = require("http");
 const cors = require("cors");
@@ -19,7 +18,7 @@ app.disable("x-powered-by");
 app.use(express.json());
 
 mongoose.connect(
-  config.get("DBURL"),
+  config.DBURL,
   {
     useFindAndModify: false,
     useCreateIndex: true,

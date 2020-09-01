@@ -7,4 +7,4 @@ const ProductSchema = mongoose.Schema({
   quantity: { type: Number, required: true },
 });
 
-module.exports = { User: ProductSchema };
+module.exports = { Product: ProductSchema };

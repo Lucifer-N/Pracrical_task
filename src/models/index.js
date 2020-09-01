@@ -1,5 +1,6 @@
 const { User, userValidation } = require("./user");
 const { Product } = require("./product");
+const mongoose = require("mongoose");
 
 module.exports = {
   userValidation: userValidation,

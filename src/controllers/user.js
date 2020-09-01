@@ -1,5 +1,5 @@
 let { User } = require("../models");
-const config = require("config");
+const config = require("../../config/default.json");
 const jwt = require("jsonwebtoken");
 
 exports.login = async (req, res) => {
@@ -12,7 +12,7 @@ exports.login = async (req, res) => {
     if (req.body.password === user.password) {
       let token = await jwt.sign(
         { email: req.body.email, password: req.body.password },
-        config.get("TOKEN")
+        config.TOKEN
       );
       res.send({
         message: "Sucessfully logged in ...",
